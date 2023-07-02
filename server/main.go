@@ -9,14 +9,9 @@ import (
 	"github.com/NYTimes/gziphandler"
 )
 
-var gz = flag.Bool("gzip", false, "enable automatic gzip compression")
-
 func main() {
 	flag.Parse()
-	h := wasmContentTypeSetter(http.FileServer(http.Dir("./html")))
-	if *gz {
-		h = gziphandler.GzipHandler(h)
-	}
+	h := gziphandler.Gziphandler(wasmContentTypeSetter(http.FileServer(http.Dir("./html"))))
 
 	log.Print("Serving on http://localhost:8080")
 	err := http.ListenAndServe(":8080", h)
