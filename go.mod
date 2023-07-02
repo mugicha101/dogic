@@ -2,7 +2,10 @@ module github.com/mugicha101/dogic
 
 go 1.20
 
-require github.com/hajimehoshi/ebiten/v2 v2.5.5
+require (
+	github.com/NYTimes/gziphandler v1.1.1
+	github.com/hajimehoshi/ebiten/v2 v2.5.5
+)
 
 require (
 	github.com/ebitengine/purego v0.3.0 // indirect
